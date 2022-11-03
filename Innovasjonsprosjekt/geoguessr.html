@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Geoguessr Trondheim</title>
+    <style>
+      .overlay {
+        z-index: 1;
+        position: relative;
+        left: 18px;
+        top: -700px;
+      }
+      .button {
+        background-color: #4dc0e3;
+        border-radius: 20px;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+      }
+      .button:hover {
+        background-color: #75c6df;
+      }
+      .button1 {
+        position: absolute;
+        z-index: 2;
+        top: 106px;
+        left: 89px;
+      }
+      .button2 {
+        position: absolute;
+        top: 650px;
+        left: 30px;
+      }
+      img #map,
+      #pano {
+        z-index: 0;
+        float: left;
+        height: 100%;
+        width: 100%;
+      }
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <div id="pano"></div>
+
+    <img class="overlay" src="images\ambulanseLogo.png" alt="Kult smilefjes" />
+    <button type="button" class="button button1" onclick="guess()">
+      Gjett
+    </button>
+    <a href="forside.html"
+      ><button type="button" class="button button2">
+        Tilbake til forsiden
+      </button></a
+    >
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB9qqG-bSt1P-fNGYsY-PwB1BLgcR1TV6w&callback=initialize&v=weekly"
+      defer
+    ></script>
+    <script src="index.js"></script>
+  </body>
+</html>
