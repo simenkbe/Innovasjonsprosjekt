@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>kjentmannstest</title> 
+</head>
+<body>
+
+<div id="googleMap" style="width:100%;height:700px;"></div>
+
+<script>
+function myMap() {
+  var mapProp= {
+    center:new google.maps.LatLng(63.434138, 10.466901),
+    zoom:15,
+    mapTypeId: "satellite",
+  };
+var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
+//Tomt array til koordinater 
+const way = []
+
+//Verdiene vi sammenligner
+//var ST = 0;
+//var SL = 0;
+
+//Legger til drawing
+var drawingManager = new google.maps.drawing.DrawingManager({
+  drawingMode: google.maps.drawing.OverlayType.POLYLINE,
+  drawingControlOptions:{
+    drawingModes: [google.maps.drawing.OverlayType.POLYLINE],
+    position: google.maps.ControlPosition.RIGHT_CENTER,
+  },
+});
+drawingManager.setMap(map);
+
+
+//Pusher koordinater og stopover verdi som et element hvor hvert punkt på kartet
+google.maps.event.addListener(drawingManager, 'polylinecomplete', polygon =>{
+  for (const point of polygon.getPath().getArray()){
+    way.push({
+      location: point.lat()+','+ point.lng(),
+      stopover: false,
+    });
+  }
+  //Utfører funksjonen som beregner tiden på ruten med stopp på valgte punkter
+  var ST = a();
+  var SL = b();
+
+  amotb(ST,SL)
+});
+
+//Startposisjon og sluttposisjon
+const start = { lat: 63.426285, lng: 10.515368};
+const slutt = { lat: 63.437168, lng: 10.421877 };
+
+//Start og slutt markører
+new google.maps.Marker({
+  position: start,
+  map,
+});
+new google.maps.Marker({
+  position: slutt,
+  map,
+});
+
+const directionsService = new google.maps.DirectionsService();
+
+//Beregner og logger google maps sin kjappeste rute
+function a(){
+  directionsService.route({
+    origin: start.lat + ', ' + start.lng,
+    destination: slutt.lat + ', ' + slutt.lng,
+    travelMode: 'DRIVING'
+  },
+  (response => {
+    var ST = (response.routes[0].legs[0].duration.value);
+    return ST;
+  }));
+};
+//Beregner rute fra start til slutt men kjører innom punktene brukeren har lagt til
+function b(){
+  directionsService.route({
+    origin: start.lat + ', ' + start.lng,
+    destination: slutt.lat + ', ' + slutt.lng,
+    travelMode: 'DRIVING',
+    //optimizeWaypoints: true,
+    waypoints: way,
+  },
+  (response => {
+    var SL = (response.routes[0].legs[0].duration.value);
+    return SL;
+  }));
+};
+
+function amotb(a,b){
+
+  if (a > (b-200)){
+    window.location = "bestottside.html"
+    console.log("Bestått");
+
+  }
+  else {
+    window.location = "Ikkebestott.html"
+    console.log("Ikke bestått");
+  };
+};
+
+
+
+};
+
+//Funksjoner for knappene
+function tilbake(){
+  window.location = "LINK TIL NY SIDE"
+}
+function startpånytt(){
+  window.location = "Kjentmannstest.html"
+}
+
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAoZDd5YpXm_qYw5Dxov44Cj83l7-SvUhk&libraries=drawing&callback=myMap"></script>
+
+<button onclick="tilbake()">Tilbake</button>
+<button onclick="startpånytt()">Start på nytt</button>
+
+</body>
+</html>
+
