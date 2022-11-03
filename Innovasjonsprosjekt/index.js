@@ -20,6 +20,14 @@ let currentPlace = steder[Math.floor(Math.random() * steder.length)];
 let coordinates = currentPlace[0];
 let sted = currentPlace[1].sted;
 
+let reconfigure = () => {
+  document.getElementById("score").innerHTML = "Your score is: " + score
+  currentPlace = steder[Math.floor(Math.random()* (steder.length))]
+  coordinates = currentPlace[0]
+  sted = currentPlace[1].sted
+  initialize()
+ }
+
 const guess = () => {
   var guess = window.prompt("Where are we?");
   if (guess == sted) {
@@ -47,6 +55,8 @@ function initialize() {
         heading: 34,
         pitch: 10,
       },
+      showRoadLabels: false,
+      linksControl: false,
     }
   );
 
