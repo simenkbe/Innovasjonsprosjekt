@@ -7,23 +7,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Geoguessr Trondheim</title>
     <style>
-      .overlay {
+      .bilde {
         z-index: 1;
-        position: relative;
-        left: 18px;
-        top: -700px;
+        position: fixed;
+        right: 0px;
+        top: 0px;
+        height: auto;
+        width: 200px;
       }
       .button {
         background-color: #4dc0e3;
         border-radius: 20px;
         border: none;
         color: white;
-        padding: 15px 32px;
-        text-align: center;
+        padding: 10px 20px;
         text-decoration: none;
         display: inline-block;
         font-size: 16px;
-        margin: 4px 2px;
+        margin: 0px 0px;
         cursor: pointer;
       }
       .button:hover {
@@ -32,13 +33,13 @@
       .button1 {
         position: absolute;
         z-index: 2;
-        top: 106px;
-        left: 89px;
+        top: 75px;
+        right: 65px;
       }
       .button2 {
-        position: absolute;
-        top: 650px;
-        left: 30px;
+        position: fixed;
+        top: 0%;
+        left: 0%;
       }
       img #map,
       #pano {
@@ -59,15 +60,17 @@
     <div id="map"></div>
     <div id="pano"></div>
 
-    <img class="overlay" src="images\ambulanseLogo.png" alt="Kult smilefjes" />
-    <button type="button" class="button button1" onclick="guess()">
-      Gjett
-    </button>
-    <a href="forside.html"
-      ><button type="button" class="button button2">
-        Tilbake til forsiden
-      </button></a
-    >
+    <div id="overlay">
+      <img class="bilde" src="images\ambulanseLogo.png" alt="Kult smilefjes" />
+      <button type="button" class="button button1" onclick="guess()">
+        Gjett
+      </button>
+      <a href="index.html"
+        ><button type="button" class="button button2">
+          Tilbake til forsiden
+        </button></a
+      >
+    </div>
     <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB9qqG-bSt1P-fNGYsY-PwB1BLgcR1TV6w&callback=initialize&v=weekly"
       defer

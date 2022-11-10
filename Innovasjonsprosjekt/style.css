@@ -1,0 +1,60 @@
+p {
+    color : darkslategrey ;
+    font-family:monospace;
+}
+
+h1 {
+    color:rgb(0, 0, 0);
+    font-size: 2cm;
+    text-align: center;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    position:relative;
+    top: 20px;
+   
+}
+
+body{
+    background-image: url('https://www.trondelag.com/files/2020/09/Kristiansten-Festning_IMG_5865_MykolaKsenofontov_Visit_Trondheim.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;  
+    background-size: cover;
+}
+
+
+  .logo {
+    width: 20%;
+    height: 15%;
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+  }
+
+  .button {
+    position: relative;
+    background-color: #4dc0e3;
+    border-radius: 20px;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    
+    cursor: pointer;
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    
+    
+  }
+  .button:hover {
+    background-color: #75c6df;
+  }
+
+
+
+
