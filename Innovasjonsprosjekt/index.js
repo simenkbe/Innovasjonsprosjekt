@@ -55,8 +55,6 @@ function initialize() {
         heading: 34,
         pitch: 10,
       },
-      showRoadLabels: 0,
-      disableDefaultUI: true,
     }
   );
 
