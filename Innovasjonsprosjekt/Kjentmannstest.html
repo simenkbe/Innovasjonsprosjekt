@@ -21,8 +21,8 @@ var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
 const way = []
 
 //Verdiene vi sammenligner
-//var ST = 0;
-//var SL = 0;
+var ST = 0;
+var SL = 0;
 
 //Legger til drawing
 var drawingManager = new google.maps.drawing.DrawingManager({
@@ -44,9 +44,6 @@ google.maps.event.addListener(drawingManager, 'polylinecomplete', polygon =>{
     });
   }
   //Utfører funksjonen som beregner tiden på ruten med stopp på valgte punkter
-  var ST = a();
-  var SL = b();
-
   amotb(ST,SL)
 });
 
@@ -74,8 +71,7 @@ function a(){
     travelMode: 'DRIVING'
   },
   (response => {
-    var ST = (response.routes[0].legs[0].duration.value);
-    return ST;
+    ST = (response.routes[0].legs[0].duration.value);
   }));
 };
 //Beregner rute fra start til slutt men kjører innom punktene brukeren har lagt til
@@ -88,8 +84,7 @@ function b(){
     waypoints: way,
   },
   (response => {
-    var SL = (response.routes[0].legs[0].duration.value);
-    return SL;
+    SL = (response.routes[0].legs[0].duration.value);
   }));
 };
 
