@@ -1,0 +1,59 @@
+#1
+
+Tomt array til koordinatene som vi henter ut når brukeren er ferdig med å lage rute
+
+#2
+
+Legger til drawingmanager. Denne gjør det mulig å tegne på kartet. Altså tegne ruten. Legger i kontrollvalg til å kun inneholde linje (ikke sirkel, rektangler osv.)
+
+#3
+
+Linja er en funksjon som kan lage mangekanter. Når denne er komplett kan du utføre en funksjon. Polygon (figuren vi nettopp har lagd) kan være en rett linje ved at du lukker
+figuren ved å trykke på slutten av forrige linje. Når dette er gjort er ruta som brukeren har tegnet ferdig.
+Da utfører vi en løkke som henter koordinatene og pusher disse inn i funksjonen som var definert tildigere. 
+Stopover er en verdi vi må ha med for hvert koordinat som sier om brukeren skal ha et fysisk stopp ved punktet, eller kun kjøre gjennom når programmer
+beregner tiden som er brukt.
+
+#4
+
+Utfører to funksjoner etter å ha fullført sirkelen. Det er å regne fasit-tiden, og den brukeren selv har lagt inn. Så utføres en funksjon som sammenligner disse
+
+#5
+
+Lager to konstanter som er start og slutt verdi. Start er utenfor Ambulansen. Slutt er ved stedet brukeren skal oppgi punkter til
+
+#6
+
+Gjør start og slutt synlige på kartet ved å gjøre de om til punkter/marks
+
+#7
+
+Legger til directionService, som er et innebygd objekt i google maps API som kan beregne hvor lang til det tar fra A til B ved hjelp av koordinater. 
+Trafikk blir også tatt hensyn til. Verdiene man får tilbake er da et array/objekt med tiden i nærmeste minutt eller antall sekunder. 
+
+#8
+
+Beregner "fasit"-tiden. Fra start til slutt. Så oppretter vi en variabel som er tiden i sekunder, og returnerer denne. 
+
+#9
+
+Gjør det samme som over, men har mellompunkter/waypoints som hentes fra konstanten med koordinater som brukeren har lagt inn
+
+#10
+
+Funksjon som sammenligner tidene. Dersom tider er nærme nok så blir man videreført til en bestått side. Hvis ikke tiden er nærme nok blir brukeren tatt videre til
+en ikke bestått side
+
+#11
+
+Funksjoner som viderefører brukeren til sider
+
+#12
+
+To knapper. En hjem knapp og en start på nytt knapp
+
+#8
+#8
+
+
+
