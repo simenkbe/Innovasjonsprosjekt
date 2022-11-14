@@ -24,8 +24,8 @@ var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
 const way = []
 
 //Test - Verdiene vi sammenligner
-var ST = 0;
-var SL = 0;
+var fasit = 0;
+var test = 0;
 
 // 2
 var drawingManager = new google.maps.drawing.DrawingManager({
@@ -46,8 +46,11 @@ google.maps.event.addListener(drawingManager, 'polylinecomplete', polygon =>{
       stopover: false,
     });
   }
-  // 4
-  amotb(ST,SL)
+  a().then(res => test = response.routes[0].legs[0].duration.value)
+  //console.log("a:"+fasit)
+  b()
+  //console.log("b:"+test)
+  amotb(test,fasit)
 });
 
 // 5
@@ -68,14 +71,15 @@ new google.maps.Marker({
 const directionsService = new google.maps.DirectionsService();
 
 // 8
-function a(){
+async function a(){
   directionsService.route({
     origin: start.lat + ', ' + start.lng,
     destination: slutt.lat + ', ' + slutt.lng,
     travelMode: 'DRIVING'
   },
   (response => {
-    ST = (response.routes[0].legs[0].duration.value);
+    fasit = response.routes[0].legs[0].duration.value;
+    console.log("a:"+fasit);
   }));
 };
 // 9
@@ -84,26 +88,29 @@ function b(){
     origin: start.lat + ', ' + start.lng,
     destination: slutt.lat + ', ' + slutt.lng,
     travelMode: 'DRIVING',
-    //optimizeWaypoints: true,
     waypoints: way,
   },
-  (response => {
-    SL = (response.routes[0].legs[0].duration.value);
+  (response => { 
+    test = response.routes[0].legs[0].duration.value;
+    console.log("b:"+test); 
   }));
 };
 
 
 //10
-function amotb(a,b){
+function amotb(test,fasit){
 
-  if (a > (b-200)){
-    window.location = "bestottside.html"
+  if (fasit > (test-200)){
+    //window.location = "bestottside.html"
     console.log("Bestått");
-
+    console.log("test: "+test);
+    console.log("Fasit: "+fasit);
   }
   else {
-    window.location = "Ikkebestott.html"
+    //window.location = "Ikkebestott.html"
     console.log("Ikke bestått");
+    console.log("test: "+test);
+    console.log("Fasit: "+fasit);
   };
 };
 
