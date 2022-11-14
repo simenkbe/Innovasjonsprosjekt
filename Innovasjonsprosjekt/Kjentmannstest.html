@@ -46,11 +46,7 @@ google.maps.event.addListener(drawingManager, 'polylinecomplete', polygon =>{
       stopover: false,
     });
   }
-  a().then(res => test = response.routes[0].legs[0].duration.value)
-  //console.log("a:"+fasit)
-  b()
-  //console.log("b:"+test)
-  amotb(test,fasit)
+  a()
 });
 
 // 5
@@ -80,11 +76,8 @@ async function a(){
   (response => {
     fasit = response.routes[0].legs[0].duration.value;
     console.log("a:"+fasit);
-  }));
-};
-// 9
-function b(){
-  directionsService.route({
+    
+    directionsService.route({
     origin: start.lat + ', ' + start.lng,
     destination: slutt.lat + ', ' + slutt.lng,
     travelMode: 'DRIVING',
@@ -93,9 +86,18 @@ function b(){
   (response => { 
     test = response.routes[0].legs[0].duration.value;
     console.log("b:"+test); 
+
+    if (fasit > (test-300)){
+    //window.location = "bestottside.html"
+    console.log("Bestått");
+  }
+    else {
+    //window.location = "Ikkebestott.html"
+    console.log("Ikke bestått");
+  };
+  }));
   }));
 };
-
 
 //10
 function amotb(test,fasit){
