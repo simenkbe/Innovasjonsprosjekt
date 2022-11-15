@@ -5,8 +5,7 @@
 <title>kjentmannstest</title> 
 </head>
 <body>
-
-<div id="googleMap" style="width:100%;height:700px;"></div>
+<div id="googleMap" style="width:100%;height:800px;"></div>
 
 <script>
 
@@ -46,7 +45,7 @@ google.maps.event.addListener(drawingManager, 'polylinecomplete', polygon =>{
       stopover: false,
     });
   }
-  a()
+  sammenlign()
 });
 
 // 5
@@ -67,7 +66,7 @@ new google.maps.Marker({
 const directionsService = new google.maps.DirectionsService();
 
 // 8
-async function a(){
+async function sammenlign(){
   directionsService.route({
     origin: start.lat + ', ' + start.lng,
     destination: slutt.lat + ', ' + slutt.lng,
@@ -75,7 +74,7 @@ async function a(){
   },
   (response => {
     fasit = response.routes[0].legs[0].duration.value;
-    console.log("a:"+fasit);
+    console.log(fasit); //Log test
     
     directionsService.route({
     origin: start.lat + ', ' + start.lng,
@@ -85,7 +84,7 @@ async function a(){
   },
   (response => { 
     test = response.routes[0].legs[0].duration.value;
-    console.log("b:"+test); 
+    console.log(test); //Log test 
 
     if (fasit > (test-300)){
     //window.location = "bestottside.html"
@@ -97,23 +96,6 @@ async function a(){
   };
   }));
   }));
-};
-
-//10
-function amotb(test,fasit){
-
-  if (fasit > (test-200)){
-    //window.location = "bestottside.html"
-    console.log("Bestått");
-    console.log("test: "+test);
-    console.log("Fasit: "+fasit);
-  }
-  else {
-    //window.location = "Ikkebestott.html"
-    console.log("Ikke bestått");
-    console.log("test: "+test);
-    console.log("Fasit: "+fasit);
-  };
 };
 
 };
@@ -130,8 +112,10 @@ function startpånytt(){
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAoZDd5YpXm_qYw5Dxov44Cj83l7-SvUhk&libraries=drawing&callback=myMap"></script>
 
 <!-- 12 -->
+<div>
 <button onclick="tilbake()">Tilbake</button>
 <button onclick="startpånytt()">Start på nytt</button>
+</div>
 
 </body>
 </html>
