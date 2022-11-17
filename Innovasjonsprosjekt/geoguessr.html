@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,10 +9,10 @@
       .bilde {
         z-index: 1;
         position: fixed;
-        right: 0px;
-        top: 0px;
+        right: 0%;
+        top: 0%;
         height: auto;
-        width: 200px;
+        width: 17%;
       }
       .button {
         background-color: #4dc0e3;
@@ -31,10 +30,10 @@
         background-color: #75c6df;
       }
       .button1 {
-        position: absolute;
+        position: fixed;
         z-index: 2;
-        top: 75px;
-        right: 65px;
+        top: 10%;
+        right: 4%;
       }
       .button2 {
         position: fixed;
@@ -42,7 +41,7 @@
         left: 0%;
       }
       img #map,
-      #pano {
+      #street-view {
         z-index: 0;
         float: left;
         height: 100%;
@@ -55,26 +54,22 @@
         padding: 0;
       }
     </style>
+    <script src="index.js"></script>
   </head>
   <body>
-    <div id="map"></div>
-    <div id="pano"></div>
-
     <div id="overlay">
       <img class="bilde" src="images\ambulanseLogo.png" alt="Kult smilefjes" />
+      <h3 id="score"></h3>
       <button type="button" class="button button1" onclick="guess()">
         Gjett
       </button>
-      <a href="index.html"
+      <a href="forside.html"
         ><button type="button" class="button button2">
           Tilbake til forsiden
         </button></a
       >
     </div>
-    <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB9qqG-bSt1P-fNGYsY-PwB1BLgcR1TV6w&callback=initialize&v=weekly"
-      defer
-    ></script>
-    <script src="index.js"></script>
+    <div id="street-view"></div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB9qqG-bSt1P-fNGYsY-PwB1BLgcR1TV6w&callback=initialize&v=weekly"></script>
   </body>
 </html>
