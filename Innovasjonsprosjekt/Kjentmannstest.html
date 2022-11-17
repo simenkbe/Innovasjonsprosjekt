@@ -22,9 +22,6 @@ var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
 // 1
 const way = []
 
-//Test - Verdiene vi sammenligner
-var fasit = 0;
-var test = 0;
 
 // 2
 var drawingManager = new google.maps.drawing.DrawingManager({
@@ -85,13 +82,13 @@ async function sammenlign(){
   (response => { 
     test = response.routes[0].legs[0].duration.value;
     console.log(test); //Log test 
-
+    window.location = "bestottside.html"
     if (fasit > (test-300)){
-    //window.location = "bestottside.html"
+    window.location = "bestottside.html"
     console.log("Bestått");
   }
     else {
-    //window.location = "Ikkebestott.html"
+    window.location = "Ikkebestott.html"
     console.log("Ikke bestått");
   };
   }));
@@ -111,10 +108,8 @@ function startpånytt(){
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAoZDd5YpXm_qYw5Dxov44Cj83l7-SvUhk&libraries=drawing&callback=myMap"></script>
 
-<a href="index.html">
-<button>Tilbake</button></a>
-
-<button onclick="startpånytt()">Start på nytt</button>
+<a href="index.html"><button>Tilbake</button></a>
+<a href="Kjentmannstest.html"><button>Start på nytt</button></a>
 </div>
 
 </body>
