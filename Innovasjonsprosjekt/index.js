@@ -21,11 +21,11 @@ let coordinates = currentPlace[0];
 let sted = currentPlace[1].sted;
 
  let reconfigure = () => {
-                    document.getElementById("score").innerHTML = "Your score is: " + score
-                    currentPlace = steder[Math.floor(Math.random()* (steder.length))]
-                    coordinates = currentPlace[0]
-                    sted = currentPlace[1].sted
-                    initialize()
+   document.getElementById("score").innerHTML = "Your score is: " + score
+   currentPlace = steder[Math.floor(Math.random()* (steder.length))]
+   coordinates = currentPlace[0]
+   sted = currentPlace[1].sted
+   initialize()
  }
 
 const guess = () => {
@@ -42,11 +42,6 @@ const guess = () => {
 };
 
 function initialize() {
-  const fenway = { lat: 42.345573, lng: -71.098326 };
-  const map = new google.maps.Map(document.getElementById("map"), {
-    center: fenway,
-    zoom: 14,
-  });
   const panorama = new google.maps.StreetViewPanorama(
     document.getElementById("pano"),
     {
