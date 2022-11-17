@@ -13,7 +13,7 @@
 
 function myMap() {
   var mapProp= {
-    center:new google.maps.LatLng(63.434138, 10.466901),
+    center:new google.maps.LatLng(63.425705, 10.505639),
     zoom:15,
     mapTypeId: "satellite",
   };
@@ -22,9 +22,6 @@ var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
 // 1
 const way = []
 
-//Test - Verdiene vi sammenligner
-var fasit = 0;
-var test = 0;
 
 // 2
 var drawingManager = new google.maps.drawing.DrawingManager({
@@ -50,7 +47,7 @@ google.maps.event.addListener(drawingManager, 'polylinecomplete', polygon =>{
 
 // 5
 const start = { lat: 63.426285, lng: 10.515368};
-const slutt = { lat: 63.437168, lng: 10.421877 };
+const slutt = { lat: 63.426381, lng: 10.491123};
 
 // 6
 new google.maps.Marker({
@@ -85,13 +82,13 @@ async function sammenlign(){
   (response => { 
     test = response.routes[0].legs[0].duration.value;
     console.log(test); //Log test 
-
+    window.location = "bestottside.html"
     if (fasit > (test-300)){
-    //window.location = "bestottside.html"
+    window.location = "bestottside.html"
     console.log("Bestått");
   }
     else {
-    //window.location = "Ikkebestott.html"
+    window.location = "Ikkebestott.html"
     console.log("Ikke bestått");
   };
   }));
@@ -111,10 +108,8 @@ function startpånytt(){
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAoZDd5YpXm_qYw5Dxov44Cj83l7-SvUhk&libraries=drawing&callback=myMap"></script>
 
-<a href="index.html">
-<button>Tilbake</button></a>
-
-<button onclick="startpånytt()">Start på nytt</button>
+<a href="index.html"><button>Tilbake</button></a>
+<a href="Kjentmannstest.html"><button>Start på nytt</button></a>
 </div>
 
 </body>
